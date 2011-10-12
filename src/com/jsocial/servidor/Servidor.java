@@ -66,11 +66,41 @@ public class Servidor {
 			retorno = comandos.postarMensagem(comandoDividido, retorno);
 
 		}
-		// Verifica e executa comando listar-mensagem-usuario
+		// Verifica e executa comando listar-mensagens-usuario
 		else if (comando.contentEquals("listar-mensagens-usuario")) {
 
 			retorno = comandos.listarMensagensUsuario(comandoDividido, retorno);
 
+		}
+		// Verifica e executa comando seguir
+		else if (comando.contentEquals("seguir")) {
+			
+			retorno = comandos.seguir(comandoDividido, retorno);
+			
+		}
+		// Verifica e executa comando listar-seguidos
+		else if (comando.contentEquals("listar-seguidos")) {
+			
+			retorno = comandos.listarSeguidos(comandoDividido, retorno);
+			
+		}
+		// Verifica e executa comando listar-seguidores
+		else if (comando.contentEquals("listar-seguidores")) {
+			
+			retorno = comandos.listarSeguidores(comandoDividido, retorno);
+			
+		}
+		//verifica e executa comando deixar-de-seguir
+		else if (comando.contentEquals("deixar-de-seguir")) {
+			
+			retorno = comandos.deixarDeSeguir(comandoDividido, retorno);
+			
+		}
+		//verifica e executa comando listar-mensagens-seguidos
+		else if (comando.contentEquals("listar-mensagens-seguidos")) {
+			
+			retorno = comandos.listarMensagensSeguidos(comandoDividido, retorno);
+			
 		}
 		// Realiza os retornos para o servidor
 		for (String linhaRetorno : retorno) {
