@@ -2,6 +2,8 @@ package com.jsocial.cadastro;
 
 import java.util.ArrayList;
 
+import com.jsocial.estruturas.Post;
+
 public class CadastroPost {
 	
 	private ArrayList<Post> post;

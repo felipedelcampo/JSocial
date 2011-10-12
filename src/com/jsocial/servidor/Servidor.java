@@ -102,6 +102,12 @@ public class Servidor {
 			retorno = comandos.listarMensagensSeguidos(comandoDividido, retorno);
 			
 		}
+		// verifica e executa comando listar-estatisticas-usuario
+		else if (comando.contentEquals("listar-estatisticas-usuario")) {
+			
+			retorno = comandos.listarEstatiscasUsuario(comandoDividido, retorno);
+			
+		}
 		// Realiza os retornos para o servidor
 		for (String linhaRetorno : retorno) {
 			writeLine(cliente.getOutputStream(), linhaRetorno);

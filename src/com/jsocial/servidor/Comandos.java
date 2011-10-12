@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 import com.jsocial.cadastro.CadastroPost;
 import com.jsocial.cadastro.CadastroUsuario;
-import com.jsocial.cadastro.Post;
-import com.jsocial.cadastro.Usuario;
+import com.jsocial.estruturas.Post;
+import com.jsocial.estruturas.Usuario;
+import com.jsocial.estruturas.UsuarioPost;
 
 public class Comandos {
 
@@ -87,9 +88,10 @@ public class Comandos {
 		return retorno;
 
 	}
-	
-	public ArrayList<String> listarSeguidores(Scanner comandoDividido, ArrayList<String> retorno) {
-		
+
+	public ArrayList<String> listarSeguidores(Scanner comandoDividido,
+			ArrayList<String> retorno) {
+
 		this.usuario = this.cadastroUsuario.cadastrado(comandoDividido.next());
 		if (this.usuario != null) {
 			retorno = this.usuario.listarSeguidores();
@@ -97,11 +99,12 @@ public class Comandos {
 			retorno.add("usuario-nao-encontrado");
 		}
 		return retorno;
-		
+
 	}
-	
-	public ArrayList<String> listarSeguidos(Scanner comandoDividido, ArrayList<String> retorno) {
-		
+
+	public ArrayList<String> listarSeguidos(Scanner comandoDividido,
+			ArrayList<String> retorno) {
+
 		this.usuario = this.cadastroUsuario.cadastrado(comandoDividido.next());
 		if (this.usuario != null) {
 			retorno = this.usuario.listarSeguidos();
@@ -109,11 +112,12 @@ public class Comandos {
 			retorno.add("usuario-nao-encontrado");
 		}
 		return retorno;
-		
+
 	}
-	
-	public ArrayList<String> deixarDeSeguir(Scanner comandoDividido, ArrayList<String> retorno) {
-		
+
+	public ArrayList<String> deixarDeSeguir(Scanner comandoDividido,
+			ArrayList<String> retorno) {
+
 		this.usuario = this.cadastroUsuario.cadastrado(comandoDividido.next());
 		this.usuario2 = this.cadastroUsuario.cadastrado(comandoDividido.next());
 		if (this.usuario != null) {
@@ -137,16 +141,38 @@ public class Comandos {
 
 		}
 		return retorno;
-		
+
 	}
-	
-	public ArrayList<String> listarMensagensSeguidos(Scanner comandoDividido,ArrayList<String> retorno) {
-		
+
+	public ArrayList<String> listarMensagensSeguidos(Scanner comandoDividido,
+			ArrayList<String> retorno) {
+
 		this.usuario = this.cadastroUsuario.cadastrado(comandoDividido.next());
 		if (this.usuario != null) {
-			retorno = this.cadastroPost.lerPosts(this.usuario.getPostsSeguidos());
+			for (UsuarioPost usuarioPostLista : this.usuario.getPostsSeguidos()) {
+				retorno.add(usuarioPostLista.getUsuario().getNome() + " "
+						+ usuarioPostLista.getPost().getTexto());
+			}
 		} else {
 			retorno.add("usuario-nao-encontrado");
+		}
+		return retorno;
+	}
+
+	public ArrayList<String> listarEstatiscasUsuario(Scanner comandoDividido,
+			ArrayList<String> retorno) {
+
+		this.usuario = this.cadastroUsuario.cadastrado(comandoDividido.next());
+		if (this.usuario != null) {
+
+			retorno.add(this.usuario.getNumeroPost().toString());
+			retorno.add(this.usuario.getNumeroSeguidos().toString());
+			retorno.add(this.usuario.getNumeroSerguidores().toString());
+
+		} else {
+
+			retorno.add("usuario-nao-encontrado");
+
 		}
 		return retorno;
 	}

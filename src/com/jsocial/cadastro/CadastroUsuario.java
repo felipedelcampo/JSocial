@@ -2,6 +2,8 @@ package com.jsocial.cadastro;
 
 import java.util.ArrayList;
 
+import com.jsocial.estruturas.Usuario;
+
 public class CadastroUsuario {
 
 	private ArrayList<Usuario> usuarios;

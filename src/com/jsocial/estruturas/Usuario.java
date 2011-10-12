@@ -1,7 +1,8 @@
-package com.jsocial.cadastro;
+package com.jsocial.estruturas;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
 
 public class Usuario {
 
@@ -50,7 +51,7 @@ public class Usuario {
 
 	public Boolean verificaSeguindo(Usuario usuario) {
 		
-		for (Usuario usuarioLista : this.seguidores) {
+		for (Usuario usuarioLista : this.seguidos) {
 			if (usuario.equals(usuarioLista)) {
 				return true;
 			}
@@ -81,13 +82,13 @@ public class Usuario {
 
 	}
 	
-	public ArrayList<Post> getPostsSeguidos() {
+	public ArrayList<UsuarioPost> getPostsSeguidos() {
 		
-		ArrayList<Post> postsSeguidos = new ArrayList<Post>();
+		ArrayList<UsuarioPost> postsSeguidos = new ArrayList<UsuarioPost>();
 		for (Usuario usuarioLista : this.seguidos) {
 			for (Post postUsuario : usuarioLista.getPosts()) {
 				
-				postsSeguidos.add(postUsuario);
+				postsSeguidos.add(new UsuarioPost(usuarioLista, postUsuario));
 				
 			}
 		}
@@ -102,6 +103,24 @@ public class Usuario {
 		Collections.reverse(postsReverso);
 		return postsReverso;
 
+	}
+	
+	public Integer getNumeroSerguidores() {
+		
+		return this.seguidores.size();
+		
+	}
+	
+	public Integer getNumeroSeguidos() {
+		
+		return this.seguidos.size();
+		
+	}
+	
+	public Integer getNumeroPost() {
+		
+		return this.post.size();
+		
 	}
 
 	public Usuario(String nome) {

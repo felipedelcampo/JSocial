@@ -1,4 +1,4 @@
-package com.jsocial.cadastro;
+package com.jsocial.estruturas;
 
 public class Post {
 
