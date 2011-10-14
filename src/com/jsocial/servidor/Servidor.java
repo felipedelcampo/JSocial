@@ -108,6 +108,17 @@ public class Servidor {
 			retorno = comandos.listarEstatiscasUsuario(comandoDividido, retorno);
 			
 		}
+		// Verifica e executa comando listar-tendencia
+		else if (comando.contentEquals("listar-tendencia")) {
+			
+			retorno = comandos.listarTendencia(comandoDividido, retorno);
+		}
+		// Verifica e executa comando listar-mensagens-com-palavra-marcada
+		else if (comando.contentEquals("listar-mensagens-com-palavra-marcada")) {
+			
+			retorno = comandos.listarMensagensComPalavraMarcada(comandoDividido, retorno);
+			
+		}
 		// Realiza os retornos para o servidor
 		for (String linhaRetorno : retorno) {
 			writeLine(cliente.getOutputStream(), linhaRetorno);

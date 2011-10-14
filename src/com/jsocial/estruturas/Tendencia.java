@@ -1,24 +1,39 @@
 package com.jsocial.estruturas;
 
+import java.util.ArrayList;
+
 public class Tendencia {
 
-	private String tendencia;
-	private Integer numeroDeOcorrencias;
+	private String hashTag;
+	private Integer numeroDeOcorrencia;
+	private ArrayList<Post> listaPost;
 
-	public String getTendencia() {
-		return tendencia;
-	}
-
-	public void setTendencia(String tendencia) {
-		this.tendencia = tendencia;
+	public String getHashTag() {
+		return hashTag;
 	}
 
 	public Integer getNumeroDeOcorrencias() {
-		return numeroDeOcorrencias;
+		return numeroDeOcorrencia;
 	}
 
-	public void setNumeroDeOcorrencias(Integer numeroDeOcorrencias) {
-		this.numeroDeOcorrencias = numeroDeOcorrencias;
+	public ArrayList<Post> getListaPost() {
+		return listaPost;
+	}
+
+	public void aumentaOcorrencia(Post post) {
+
+		this.numeroDeOcorrencia++;
+		this.listaPost.add(post);
+
+	}
+
+	public Tendencia(String hashTag, Post post) {
+
+		this.hashTag = hashTag;
+		this.numeroDeOcorrencia = 1;
+		this.listaPost = new ArrayList<Post>();
+		this.listaPost.add(post);
+
 	}
 
 }

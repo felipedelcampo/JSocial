@@ -82,13 +82,13 @@ public class Usuario {
 
 	}
 	
-	public ArrayList<UsuarioPost> getPostsSeguidos() {
+	public ArrayList<Post> getPostsSeguidos() {
 		
-		ArrayList<UsuarioPost> postsSeguidos = new ArrayList<UsuarioPost>();
+		ArrayList<Post> postsSeguidos = new ArrayList<Post>();
 		for (Usuario usuarioLista : this.seguidos) {
 			for (Post postUsuario : usuarioLista.getPosts()) {
 				
-				postsSeguidos.add(new UsuarioPost(usuarioLista, postUsuario));
+				postsSeguidos.add(postUsuario);
 				
 			}
 		}

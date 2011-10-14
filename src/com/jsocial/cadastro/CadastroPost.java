@@ -3,6 +3,7 @@ package com.jsocial.cadastro;
 import java.util.ArrayList;
 
 import com.jsocial.estruturas.Post;
+import com.jsocial.estruturas.Usuario;
 
 public class CadastroPost {
 	
@@ -16,9 +17,9 @@ public class CadastroPost {
 		
 	}
 	
-	public Post cadastrarPost(String texto) {
+	public Post cadastrarPost(String texto, Usuario usuario) {
 		
-		Post postAtual = new Post(texto, indice);
+		Post postAtual = new Post(texto, indice, usuario);
 		this.post.add(postAtual);
 		this.indice++;
 		return postAtual;

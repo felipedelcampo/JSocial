@@ -4,21 +4,23 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.jsocial.cadastro.CadastroPost;
+import com.jsocial.cadastro.CadastroTendencia;
 import com.jsocial.cadastro.CadastroUsuario;
 import com.jsocial.estruturas.Post;
 import com.jsocial.estruturas.Usuario;
-import com.jsocial.estruturas.UsuarioPost;
 
 public class Comandos {
 
 	private CadastroUsuario cadastroUsuario;
 	private Usuario usuario, usuario2;
 	private CadastroPost cadastroPost;
+	private CadastroTendencia cadastroTendencia;
 
 	public Comandos() {
 
 		this.cadastroUsuario = new CadastroUsuario();
 		this.cadastroPost = new CadastroPost();
+		this.cadastroTendencia = new CadastroTendencia();
 
 	}
 
@@ -36,8 +38,8 @@ public class Comandos {
 		if (this.usuario != null) {
 			String textoPost = comandoDividido.nextLine().trim();
 			if (!textoPost.isEmpty() && textoPost.length() <= 140) {
-				Post post = this.cadastroPost.cadastrarPost(textoPost);
-				this.usuario.postar(post);
+				Post post = this.cadastroPost.cadastrarPost(textoPost,this.usuario);
+				this.cadastroTendencia.computaTendencia(post);
 				retorno.add("ok");
 			} else {
 				retorno.add("mensagem-invalida");
@@ -149,9 +151,9 @@ public class Comandos {
 
 		this.usuario = this.cadastroUsuario.cadastrado(comandoDividido.next());
 		if (this.usuario != null) {
-			for (UsuarioPost usuarioPostLista : this.usuario.getPostsSeguidos()) {
-				retorno.add(usuarioPostLista.getUsuario().getNome() + " "
-						+ usuarioPostLista.getPost().getTexto());
+			for (Post postLista : this.usuario.getPostsSeguidos()) {
+				retorno.add(postLista.getUsuario().getNome() + " "
+						+ postLista.getTexto());
 			}
 		} else {
 			retorno.add("usuario-nao-encontrado");
@@ -173,6 +175,22 @@ public class Comandos {
 
 			retorno.add("usuario-nao-encontrado");
 
+		}
+		return retorno;
+	}
+	
+	public ArrayList<String> listarTendencia(Scanner comandoDividido, ArrayList<String> retorno) {
+		
+		return this.cadastroTendencia.listarTendencia();
+		
+	}
+	
+	public ArrayList<String> listarMensagensComPalavraMarcada(Scanner comandoDividido, ArrayList<String> retorno) {
+		
+		for (Post postLista : this.cadastroTendencia.retornaPostTendencia(comandoDividido.next())) {
+			
+			retorno.add(postLista.getUsuario().getNome() + " " + postLista.getTexto());
+			
 		}
 		return retorno;
 	}
