@@ -17,7 +17,7 @@ public class CadastroPost {
 		
 	}
 	
-	public Post cadastrarPost(String texto, Usuario usuario) {
+	public synchronized Post cadastrarPost(String texto, Usuario usuario) {
 		
 		Post postAtual = new Post(texto, indice, usuario);
 		this.post.add(postAtual);
@@ -26,7 +26,7 @@ public class CadastroPost {
 		
 	}
 	
-	public ArrayList<String> lerPosts(ArrayList<Post> posts) {
+	public synchronized ArrayList<String> lerPosts(ArrayList<Post> posts) {
 		
 		ArrayList<String> textoPosts = new ArrayList<String>();
 		for (Post postLista : posts) {

@@ -14,7 +14,7 @@ public class CadastroUsuario {
 
 	}
 	
-	public Usuario cadastrado(String nome) {
+	public synchronized Usuario cadastrado(String nome) {
 		
 		for (Usuario usuario : usuarios) {
 			if (usuario.getNome().contentEquals(nome)) {
@@ -26,7 +26,7 @@ public class CadastroUsuario {
 	}
 
 
-	public String adicionaUsuario(String nome) {
+	public synchronized String adicionaUsuario(String nome) {
 
 		if (nome.length() < 3 || nome.length() > 20) {
 			return "nome-invalido";

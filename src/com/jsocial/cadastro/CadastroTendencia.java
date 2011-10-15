@@ -30,7 +30,7 @@ public class CadastroTendencia {
 
 	}
 
-	public void computaTendencia(Post post) {
+	public synchronized void computaTendencia(Post post) {
 		
 		String listaPost[] = post.getTexto().split("[^a-zA-Z_0-9çÇáéíóúýÁÉÍÓÚÝàèìòùÀÈÌÒÙãõñäëïöüÿÄËÏÖÜÃÕÑâêîôûÂÊÎÔÛ#]");
 
@@ -56,7 +56,7 @@ public class CadastroTendencia {
 
 	}
 	
-	public ArrayList<String> listarTendencia() {
+	public synchronized ArrayList<String> listarTendencia() {
 		
 		ArrayList<String> retorno = new ArrayList<String>();
 		for ( int i = 0; (i < 5 && i < this.listaTendencia.size()) ; i++) {
@@ -68,7 +68,7 @@ public class CadastroTendencia {
 		
 	}
 	
-	public ArrayList<Post> retornaPostTendencia(String hashTag) {
+	public synchronized ArrayList<Post> retornaPostTendencia(String hashTag) {
 		
 		ArrayList<Post> listaPost = new ArrayList<Post>();
 		for (Tendencia tendenciaLista : this.listaTendencia) {

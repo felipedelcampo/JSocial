@@ -25,31 +25,31 @@ public class Usuario {
 
 	}
 
-	public void seguir(Usuario usuario) {
+	public synchronized void seguir(Usuario usuario) {
 
 		this.seguidos.add(usuario);
 
 	}
 	
-	public void naoSeguir(Usuario usuario) {
+	public synchronized void naoSeguir(Usuario usuario) {
 		
 		this.seguidos.remove(usuario);
 		
 	}
 
-	public void teSeguindo(Usuario usuario) {
+	public synchronized void teSeguindo(Usuario usuario) {
 
 		this.seguidores.add(usuario);
 
 	}
 	
-	public void naoTeSeguindo(Usuario usuario) {
+	public synchronized void naoTeSeguindo(Usuario usuario) {
 		
 		this.seguidores.remove(usuario);
 		
 	}
 
-	public Boolean verificaSeguindo(Usuario usuario) {
+	public synchronized Boolean verificaSeguindo(Usuario usuario) {
 		
 		for (Usuario usuarioLista : this.seguidos) {
 			if (usuario.equals(usuarioLista)) {
@@ -60,7 +60,7 @@ public class Usuario {
 		
 	}
 
-	public ArrayList<String> listarSeguidores() {
+	public synchronized ArrayList<String> listarSeguidores() {
 
 		ArrayList<String> seguidoresReverso = new ArrayList<String>();
 		for (Usuario usuarioLista : this.seguidores) {
@@ -71,7 +71,7 @@ public class Usuario {
 
 	}
 
-	public ArrayList<String> listarSeguidos() {
+	public synchronized ArrayList<String> listarSeguidos() {
 
 		ArrayList<String> seguidosReverso = new ArrayList<String>();
 		for (Usuario usuarioLista : this.seguidos) {
@@ -82,7 +82,7 @@ public class Usuario {
 
 	}
 	
-	public ArrayList<Post> getPostsSeguidos() {
+	public synchronized ArrayList<Post> getPostsSeguidos() {
 		
 		ArrayList<Post> postsSeguidos = new ArrayList<Post>();
 		for (Usuario usuarioLista : this.seguidos) {
@@ -105,19 +105,19 @@ public class Usuario {
 
 	}
 	
-	public Integer getNumeroSerguidores() {
+	public synchronized Integer getNumeroSerguidores() {
 		
 		return this.seguidores.size();
 		
 	}
 	
-	public Integer getNumeroSeguidos() {
+	public synchronized Integer getNumeroSeguidos() {
 		
 		return this.seguidos.size();
 		
 	}
 	
-	public Integer getNumeroPost() {
+	public synchronized Integer getNumeroPost() {
 		
 		return this.post.size();
 		
