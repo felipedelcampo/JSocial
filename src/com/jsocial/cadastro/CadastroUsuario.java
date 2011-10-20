@@ -1,3 +1,7 @@
+/**
+ * @author felipe
+ * Classe para controlar o cadastro de usuário
+ */
 package com.jsocial.cadastro;
 
 import java.util.ArrayList;
@@ -14,7 +18,7 @@ public class CadastroUsuario {
 
 	}
 	
-	public synchronized Usuario cadastrado(String nome) {
+	public Usuario cadastrado(String nome) {
 		
 		for (Usuario usuario : usuarios) {
 			if (usuario.getNome().contentEquals(nome)) {

@@ -1,3 +1,8 @@
+/**
+ * @author felipe
+ * Classe que cuida dos cadastros de Post
+ */
+
 package com.jsocial.cadastro;
 
 import java.util.ArrayList;
@@ -26,7 +31,7 @@ public class CadastroPost {
 		
 	}
 	
-	public synchronized ArrayList<String> lerPosts(ArrayList<Post> posts) {
+	public ArrayList<String> lerPosts(ArrayList<Post> posts) {
 		
 		ArrayList<String> textoPosts = new ArrayList<String>();
 		for (Post postLista : posts) {

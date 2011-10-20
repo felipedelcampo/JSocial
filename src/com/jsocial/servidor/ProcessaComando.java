@@ -1,3 +1,8 @@
+/**
+ * @author felipe
+ * Classe que recebe os comandos e os processa
+ */
+
 package com.jsocial.servidor;
 
 import java.io.BufferedReader;
@@ -20,7 +25,7 @@ public class ProcessaComando extends Thread {
 		this.comandos = comandos;
 		
 	}
-	
+	//Método da Thread
 	public void run() {
 		
 		try {

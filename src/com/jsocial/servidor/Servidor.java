@@ -1,3 +1,8 @@
+/**
+ * @author felipe
+ * Classe servidor que cria o socket
+ */
+
 package com.jsocial.servidor;
 
 import java.io.IOException;
@@ -19,6 +24,7 @@ public class Servidor {
 		
 		try {
 			while (true) {
+				// Cria uma thread para cada conexão recebida
 				ProcessaComando processaComando = new ProcessaComando(socket.accept(), comandos);
 				processaComando.start();
 			}

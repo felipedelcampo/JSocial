@@ -1,3 +1,8 @@
+/**
+ * @author felipe
+ * Classe para criação de tendências
+ */
+
 package com.jsocial.estruturas;
 
 import java.util.ArrayList;

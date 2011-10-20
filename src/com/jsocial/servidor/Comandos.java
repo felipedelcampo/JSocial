@@ -1,3 +1,8 @@
+/**
+ * @author felipe
+ * Classe que cuida da inicialização dos cadsatros e da execução dos comandos
+ */
+
 package com.jsocial.servidor;
 
 import java.util.ArrayList;
@@ -16,7 +21,8 @@ public class Comandos {
 	private CadastroTendencia cadastroTendencia;
 
 	public Comandos() {
-
+		
+		//Primeira inicialização
 		this.cadastroUsuario = new CadastroUsuario();
 		this.cadastroPost = new CadastroPost();
 		this.cadastroTendencia = new CadastroTendencia();

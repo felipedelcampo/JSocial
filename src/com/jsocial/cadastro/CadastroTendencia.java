@@ -1,3 +1,8 @@
+/**
+ * @author felipe
+ * Cuida da criação das tendências
+ */
+
 package com.jsocial.cadastro;
 
 import java.util.ArrayList;
@@ -56,7 +61,7 @@ public class CadastroTendencia {
 
 	}
 	
-	public synchronized ArrayList<String> listarTendencia() {
+	public ArrayList<String> listarTendencia() {
 		
 		ArrayList<String> retorno = new ArrayList<String>();
 		for ( int i = 0; (i < 5 && i < this.listaTendencia.size()) ; i++) {
@@ -68,7 +73,7 @@ public class CadastroTendencia {
 		
 	}
 	
-	public synchronized ArrayList<Post> retornaPostTendencia(String hashTag) {
+	public ArrayList<Post> retornaPostTendencia(String hashTag) {
 		
 		ArrayList<Post> listaPost = new ArrayList<Post>();
 		for (Tendencia tendenciaLista : this.listaTendencia) {
